@@ -10,7 +10,7 @@ function Navigator({setCategory} : IProps) {
     const {categorys} = useCategorys();
 
     return(
-        <nav className="h-[50px] flex justify-around px-5 bg-gray-500 items-center text-white">
+        <nav className="h-[50px] w-screen flex justify-around px-5 bg-gray-500 items-center text-white">
             <span className="font-bold">FakeStoreAPI</span>
 
             <span>

@@ -11,7 +11,7 @@ function App() {
 
 
   return (
-      <div>
+      <div className="flex items-center flex-col">
           <Navigator setCategory={setCategory}/>
           {
               loading &&

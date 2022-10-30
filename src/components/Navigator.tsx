@@ -3,9 +3,11 @@ import {useCategorys} from "../hooks/useCategorys";
 
 interface IProps{
     setCategory: any,
+    setModal: any,
+    modal: boolean,
 }
 
-function Navigator({setCategory} : IProps) {
+function Navigator({setCategory , setModal , modal} : IProps) {
 
     const {categorys} = useCategorys();
 
@@ -18,6 +20,12 @@ function Navigator({setCategory} : IProps) {
                     categorys.map(category => <span className="mr-5 cursor-pointer" onClick={() => {setCategory(category)}}>{category}</span>)
                 }
             </span>
+            <span
+                className="font-bold cursor-pointer"
+                onClick={() => {
+                    setModal(!modal)
+                }}
+            >basket</span>
         </nav>
     );
 }

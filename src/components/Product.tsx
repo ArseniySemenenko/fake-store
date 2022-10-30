@@ -1,12 +1,20 @@
 import React, {useState} from 'react';
 import {IProduct} from '../models';
+import basket from "./Basket";
 
 interface ProductProps {
-    product: IProduct
+    product: IProduct,
+    setBasket: any,
+    basket: IProduct[],
 }
 
-export function Product({ product }: ProductProps) {
+export function Product({ product , setBasket , basket}: ProductProps) {
     const [details, setDetails] = useState(false)
+
+    function addToBasket(){
+        setBasket([...basket , product]);
+        console.log(basket);
+    }
 
     return (
         <div
@@ -20,6 +28,12 @@ export function Product({ product }: ProductProps) {
                 onClick={() => setDetails(!details)}
             >
                 { details ? 'Hide Details' : 'Show Details' }
+            </button>
+            <button
+                className={'mt-2 py-2 px-4 border bg-yellow-400'}
+                onClick={addToBasket}
+            >
+                Add to basket
             </button>
 
             {details && <div>

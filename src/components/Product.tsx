@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {IProduct} from '../models';
 import basket from "./Basket";
+import basketProduct from "./BasketProduct";
 
 interface ProductProps {
     product: IProduct,
@@ -12,8 +13,16 @@ export function Product({ product , setBasket , basket}: ProductProps) {
     const [details, setDetails] = useState(false)
 
     function addToBasket(){
-        setBasket([...basket , product]);
-        console.log(basket);
+        if(basket.length > 0){
+            basket.map((basketP) => {
+                if(basketP.title !== product.title){
+                    setBasket([...basket , product]);
+                }
+            })
+        }
+        else{
+            setBasket([...basket , product]);
+        }
     }
 
     return (

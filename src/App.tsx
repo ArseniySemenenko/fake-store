@@ -7,7 +7,6 @@ import {IProduct} from "./models";
 
 function App() {
     const [category , setCategory] = useState("electronics");
-
     const {products , loading , error} = useProducts();
 
     const [basket , setBasket] = useState<IProduct[]>([]);
